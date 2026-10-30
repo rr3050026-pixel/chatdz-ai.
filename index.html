@@ -2,44 +2,159 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#090b0a">
 <title>Chatdz AI</title>
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;600;700;800&display=swap');
 
+<style>
 *{box-sizing:border-box}
 body{
  margin:0;background:#090b0a;color:white;
- font-family:'Alexandria',sans-serif;
- padding-bottom:85px
+ font-family:Arial,sans-serif;padding-bottom:85px
 }
 header{
- padding:25px 20px 18px;
- display:flex;align-items:center;justify-content:space-between;
+ padding:22px 18px;display:flex;
+ justify-content:space-between;align-items:center;
  border-bottom:1px solid #252925
 }
-.logo{font-size:25px;font-weight:800}
+.logo{font-size:25px;font-weight:bold}
 .logo span{color:#20c875}
 .badge{
- font-size:11px;color:#20c875;
- border:1px solid #176d43;border-radius:20px;padding:6px 10px
+ color:#20c875;border:1px solid #176d43;
+ padding:6px 10px;border-radius:20px;font-size:11px
 }
 main{padding:24px 18px}
-h1{font-size:27px;margin:12px 0}
-.subtitle{color:#999;font-size:13px;line-height:2}
+h1{font-size:26px;margin:12px 0}
+.subtitle{color:#999;font-size:14px;line-height:2}
 .search{
- width:100%;padding:16px;border-radius:15px;
+ width:100%;padding:16px;border-radius:14px;
  background:#171b18;border:1px solid #303630;
- color:white;font-size:14px;margin:22px 0
+ color:white;font-size:15px;margin:20px 0
 }
-.section-title{font-size:17px;margin:18px 0}
+.section-title{font-size:18px;margin:20px 0}
 .grid{
- display:grid;grid-template-columns:repeat(2,1fr);gap:12px
+ display:grid;grid-template-columns:repeat(2,1fr);
+ gap:12px
 }
 .card{
  background:#151a16;border:1px solid #303630;
- border-radius:17px;padding:17px 13px;
- min-height:125px;cursor:pointer
+ border-radius:16px;padding:17px 13px;
+ min-height:120px;cursor:pointer
 }
-.icon{font-size:27
+.icon{font-size:28px;margin-bottom:12px}
+.card h3{font-size:15px;margin:5px 0}
+.card p{font-size:11px;color:#999;margin:7px 0}
+.card:active{border-color:#20c875}
+footer{
+ position:fixed;bottom:0;left:0;right:0;
+ background:#111512;border-top:1px solid #303630;
+ display:flex;justify-content:space-around;
+ padding:15px 5px;color:#aaa;font-size:12px
+}
+footer span{cursor:pointer}
+button{
+ background:#20c875;color:#07150d;border:0;
+ padding:12px 20px;border-radius:12px;
+ font-weight:bold;cursor:pointer
+}
+#message{color:#20c875;margin-top:15px;font-size:13px}
+</style>
+</head>
+
+<body>
+
+<header>
+ <div class="logo">Chatdz <span>AI</span></div>
+ <div class="badge">🇩🇿 منصة الذكاء الاصطناعي</div>
+</header>
+
+<main>
+ <h1>مرحباً بك في Chatdz AI 👋</h1>
+
+ <p class="subtitle">
+ منصتك الذكية، جميع أدوات الذكاء الاصطناعي في مكان واحد.
+ </p>
+
+ <input class="search" id="search"
+ placeholder="ابحث عن أداة...">
+
+ <h2 class="section-title">✨ أدوات الذكاء الاصطناعي</h2>
+
+ <div class="grid" id="tools">
+
+  <div class="card" onclick="openTool('المحادثة الذكية')">
+   <div class="icon">💬</div>
+   <h3>المحادثة الذكية</h3>
+   <p>تحدث مع الذكاء الاصطناعي</p>
+  </div>
+
+  <div class="card" onclick="openTool('إنشاء الصور')">
+   <div class="icon">🎨</div>
+   <h3>إنشاء الصور</h3>
+   <p>حوّل أفكارك إلى صور</p>
+  </div>
+
+  <div class="card" onclick="openTool('إنشاء الفيديو')">
+   <div class="icon">🎬</div>
+   <h3>إنشاء الفيديو</h3>
+   <p>اصنع فيديوهات إبداعية</p>
+  </div>
+
+  <div class="card" onclick="openTool('الصوت والموسيقى')">
+   <div class="icon">🎵</div>
+   <h3>الصوت والموسيقى</h3>
+   <p>أدوات الصوت والموسيقى</p>
+  </div>
+
+  <div class="card" onclick="openTool('الترجمة')">
+   <div class="icon">🌍</div>
+   <h3>الترجمة</h3>
+   <p>ترجمة النصوص واللغات</p>
+  </div>
+
+  <div class="card" onclick="openTool('الكتابة')">
+   <div class="icon">✍️</div>
+   <h3>الكتابة</h3>
+   <p>كتابة وتحرير النصوص</p>
+  </div>
+
+  <div class="card" onclick="openTool('البرمجة')">
+   <div class="icon">💻</div>
+   <h3>البرمجة</h3>
+   <p>مساعدتك في كتابة الأكواد</p>
+  </div>
+
+  <div class="card" onclick="openTool('ملفات PDF')">
+   <div class="icon">📄</div>
+   <h3>ملفات PDF</h3>
+   <p>قراءة وتلخيص المستندات</p>
+  </div>
+
+ </div>
+
+ <p id="message"></p>
+</main>
+
+<footer>
+ <span>🏠 الرئيسية</span>
+ <span>🧰 الأدوات</span>
+ <span>👤 حسابي</span>
+</footer>
+
+<script>
+function openTool(name){
+ document.getElementById("message").textContent=
+ "قريباً سيتم تفعيل أداة: "+name;
+}
+
+document.getElementById("search").addEventListener("input",function(){
+ let value=this.value.toLowerCase();
+ document.querySelectorAll(".card").forEach(function(card){
+  card.style.display=card.textContent.toLowerCase().includes(value)
+  ? "block":"none";
+ });
+});
+</script>
+
+</body>
+</html>
